@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block items %}
+
+{% include "pagenation.html" %}
+
+
+<div class="col-xs-12 container-fluid">
+    <div class="row">
+        {% for item in results %}
+        <div class="col-md-3 col-sm-4 col-xs-6 m-itemlist thumbnail">
+                 <div class="goods_img">
+                        <a href={{ item["detail_url"] }} class="pic_link">
+                         <img src="{{ item["pic_url"] + "_300x300.jpg_.webp" }}" alt="{{ item["detail_url"] }}" >
+                         </a>
+                 </div>
+                <div class="ctx-box J_MouseEneterLeave J_IconMoreNew">
+
+                    <div class="row row-1 g-clearfix">
+                       <div class="price g_price g_price-highlight">
+                            <span>¥</span><strong>{{ item["view_price"] }}</strong>
+                             <div class="deal-cnt">{{ item["view_sales"] }}人付款</div>
+                             <br>
+                              <div class="deal-cnt">{{item['comment_count']}}人评论</div>
+                       </div>
+                       <div class="ship icon-service-free">
+                       {% if item["view_fee"] == 0 %}
+                            包邮
+                        {% else %}
+                            {{item["view_fee"]}}
+                        {% endif %}
+                       </div>
+                    </div>
+
+                    <div class="row row-2 title">
+                      <a class="J_ClickStat" data-nid="564926098999" href="{{ item["detail_url"] }}" >
+
+                        <span class="baoyou-intitle icon-service-free"></span>
+                        {{ item["raw_title"] }}
+                      </a>
+                    </div>
+
+                    <div class="shop">
+                        {% if item['isTmall']%}
+                            <img src="https://favicon.yandex.net/favicon/tmall.com" alt="">
+                        {% else %}
+                            <img src="https://favicon.yandex.net/favicon/taobao.com" alt="">
+                        {% endif %}
+                        <a href="{{ item['shopLink'] }}" >
+                        <span >{{ item["nick"] }}</span>
+                        </a>
+
+
+
+                        <table class="table table-condensed">
+
+                          <tbody>
+                            <tr>
+                              <td>信用{{ item["sellerCredit"] }}</td>
+                              <td>级别{{ item["shop_classN"] }}</td>
+                              <td class="location">{{ item["item_loc"] }}</td>
+                            </tr>
+                          </tbody>
+
+                        </table>
+
+
+                    </div>
+
+                </div>
+
+                <div class="my-widget-shopinfo my-shopinfo-grid">
+                    <div class="score-box">
+                        <ul class="scores">
+
+                           {% if item["delivery_h"]>=0 %}
+                           <li class="score morethan">
+                             <span class="text">如实描述：{{'%04.2f'%item["description0"]}}</span>
+                             <span class="highlight">比同行高</span>
+                             <span class="percent">{{'%05.2f'%item["description_h"]}}%</span>
+                           </li>
+                           {% else %}
+                           <li class="score lessthan">
+                             <span class="text">如实描述：{{'%04.2f'%item["description0"]}}</span>
+                             <span class="highlight">比同行低</span>
+                             <span class="percent">{{'%05.2f'%item["description_h"]}}%</span>
+                           </li>
+                            {% endif %}
+
+
+                           {% if item["delivery_h"]>=0 %}
+                           <li class="score morethan">
+                             <span class="text">服务态度：{{'%04.2f'%item["service0"]}}</span>
+                             <span class="highlight">比同行高</span>
+                             <span class="percent">{{'%05.2f'%item["service_h"]}}%</span>
+                           </li>
+                           {% else %}
+                           <li class="score lessthan">
+                             <span class="text">服务态度：{{'%04.2f'%item["service0"]}}</span>
+                             <span class="highlight">比同行低</span>
+                             <span class="percent">{{'%05.2f'%item["service_h"]}}%</span>
+                           </li>
+
+                            {% endif %}
+
+                        {% if item["delivery_h"]>=0 %}
+                           <li class="score morethan">
+                             <span class="text">物流服务：{{'%04.2f'%item["delivery0"]}}</span>
+                             <span class="highlight">比同行高</span>
+                             <span class="percent">{{'%05.2f'%item["delivery_h"]}}%</span>
+                           </li>
+                        {% else %}
+                           <li class="score lessthan">
+                             <span class="text">物流服务：{{'%04.2f'%item["delivery0"]}}</span>
+                             <span class="highlight">比同行低</span>
+                             <span class="percent">{{'%05.2f'%item["delivery_h"]}}%</span>
+                           </li>
+                        {% endif %}
+                       </ul>
+                    </div>
+                </div>
+
+        </div>
+        {% endfor %}
+
+
+
+
+
+{% include "pagenation.html" %}
+
+<link rel="stylesheet" href="/static/items.css" >
+{% endblock items %}

@@ -1,0 +1,112 @@
+.container-fluid{
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 16px;
+}
+
+
+.thumbnail a > img, .thumbnail > img {
+    margin-right: auto;
+    margin-left: auto;
+    width: 90%;
+}
+
+.m-ctx-box {
+  height: 100px;
+}
+
+
+
+.m-itemlist .location {
+    text-align: right;
+    color: #888;
+    font-size: 12px;
+}
+
+.ctx-box{
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+div {
+    display: block;
+}
+
+.m-itemlist .grid .row-3 {
+    margin-top: 5px;
+    height: 22px;
+    line-height: 22px;
+    overflow: hidden;
+
+}
+
+.g_price-highlight span {
+    color: #F40;
+}
+.g_price strong {
+    color: #F40;
+    font-weight: 700;
+    font-family: arial;
+}
+
+.m-itemlist .deal-cnt {
+    float: right;
+    color: #888;
+    display: block;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+
+.shop>table>tbody>tr>td{
+    border: 0px
+}
+.shop>table{
+    margin-bottom:0px;
+}
+
+
+
+.my-widget-shopinfo .lessthan .highlight {
+    background: #00ba97;
+    font-size: 10px;
+}
+
+.my-widget-shopinfo .morethan .highlight {
+    background: #f40;
+    font-size: 10px;
+}
+
+.my-widget-shopinfo .score .highlight {
+    padding: 0 3px;
+    color: #fff;
+}
+
+.my-widget-shopinfo .score{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 95%
+}
+
+.scores{
+    padding-left: 2%;
+    text-align: center;
+    margin-top: 5px;
+}
+
+
+
+
+
+.m-page {
+    /* overflow: hidden; */
+    position: relative;
+    margin-top: 20px;
+    padding: 10px 0;
+    height: 37px;
+}
+
+

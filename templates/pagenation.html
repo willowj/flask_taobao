@@ -1,0 +1,30 @@
+{% if next_t %}
+    <div>
+        <div class="col-lg-12">
+            <nav aria-label="Page navigation" class="text-center">
+                  <ul class="pagination">
+                    <li>
+                      <a href="/next_t/{{next_t-2}}"" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                      </a>
+                    </li>
+
+                    <li><a href="/next_t/0">1</a></li>
+                    <li><a href="/next_t/2">2</a></li>
+                    <li><a href="/next_t/4">3</a></li>
+                    <li><a href="/next_t/6">4</a></li>
+                    <li><a href="/next_t/8">5</a></li>
+
+                    <li>
+                      <a href="/next_t/{{next_t}}"
+                      aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                    </li>
+
+                  </ul>
+            </nav>
+
+        </div>
+    </div>
+{% endif %}

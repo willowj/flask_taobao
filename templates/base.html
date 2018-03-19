@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+        <!-- Bootstrap -->
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+
+  </head>
+
+
+
+
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/#">Brand</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">首页 <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Link</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="navbar-form navbar-left">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Link</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  <!-- Categories: success (green), info (blue), warning (yellow), danger (red) -->
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }} alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <!-- <strong>Title</strong> --> {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+{% if good_name %}
+
+  <a href="/unite/{{good_name}}" class="btn btn-info" role="button">{{good_name}} 整合</a>
+{% else %}
+  <a href="#" class="btn btn-info" role="button">分页浏览后这里整合</a>
+
+{% endif %}
+
+
+<div class="form-horizontal col-lg-6"  style="width: 70%;margin-left: 15%; background: beige">
+        <form class="" role="form" action="/search_good" method="POST">
+
+                    <fieldset>
+                        <div class="form-group" >
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="搜索的商品:{{serch_info["searchgoods"]}}" name ="searchgoods">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-danger" type="submit">Go!
+                                    </button>
+                                </span>
+                            </div><!-- /input-group -->
+                        </div>
+
+                       <div class="form-group">
+                          <label class="" ></label>
+                          <div class="col-sm-4">
+                             <input class="form-control" name="min_price" type="text"
+                             placeholder="{{"最低价"}}{{serch_info["min_price"]}}￥"/>
+                          </div>
+
+                          <label class="" ></label>
+                          <div class="col-sm-4">
+                             <input class="form-control" name="max_price" type="text" placeholder="{{"最高价"}}{{serch_info["max_price"]}}￥"/>
+                          </div>
+
+                           <label class="" ></label>
+                           <div class="col-sm-3">
+                              <select name="sort_by" class="form-control">
+                                 <option>综合排序</option>
+                                 <option>销量排序</option>
+                                 <option>人气排序</option>
+                              </select>
+                           </div>
+                       </div>
+
+                       <div class="form-group">
+                          <label class="" ></label>
+                          <div class="col-sm-4">
+                             <input class="form-control" name="descripHrequ" type="text" placeholder="{{"描述高于平均"}} {{serch_info["descripHrequ"]}}%"/>
+                          </div>
+                          <label class="" ></label>
+                          <div class="col-sm-4">
+                             <input class="form-control" name="servHrequ" type="text" placeholder="{{"服务高于平均"}}{{serch_info["servHrequ"]}}%"/>
+                          </div>
+
+
+                          <div class="col-sm-2 checkbox control-label ">
+                          <label>
+                            {% if serch_info["only_tmall"]=="on" %}
+                            <input type="checkbox" name="only_tmall" checked="checked">只看天猫
+                            {% else %}
+                            <input type="checkbox" name="only_tmall">only天猫
+                            {% endif %}
+                          </label>
+                          </div>
+
+                      </div>
+
+
+                       <div class="form-group">
+                          <label class="col-sm-2 control-label" >包含关键字</label>
+                          <div class="col-sm-3">
+                             <input class="form-control" name="keyword" type="text" placeholder="{{serch_info["keyword"]}}"/>
+                          </div>
+
+                          <label class="col-sm-2 control-label" >最低评论数</label>
+                          <div class="col-sm-3">
+                             <input class="form-control" name="threshold_count" type="text" placeholder="{{serch_info["threshold_count"]}}"/>
+                          </div>
+
+
+
+
+                      </div>
+
+                    </fieldset>
+
+                </form>
+</div>
+
+
+
+<!--
+    <div class="col-xs-12 text-center infoheader">
+        <h2>Real news, curated by real humans</h2>
+        <p>Packed with the trends, news &amp; links you need to be smart, informed, and ahead of the curve.</p>
+    </div> -->
+
+
+    {% block items%}
+    {% endblock items%}
+
+
+
+
+  </body>
+
+
+
+
+</html>
+
+
+
+
+
+
+
+
