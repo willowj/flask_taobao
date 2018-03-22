@@ -7,12 +7,6 @@ from math import log
 
 py3 = sys.version_info[0]==3
 
-keyword = None
-
-descripHrequ = None
-servHrequ = None
-comment_count = None
-
 
 
 class Result(object):

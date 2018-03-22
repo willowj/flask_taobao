@@ -7,7 +7,6 @@ sys.setdefaultencoding('utf-8')
 from flask import Flask, flash, redirect, render_template, \
     request, Response, make_response, session, url_for, jsonify
 
-from from_ import form_
 
 from taobao_search import search_filter_taobao, unite_goods
 from taobao_search import CrawlerError
